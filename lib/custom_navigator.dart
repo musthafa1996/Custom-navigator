@@ -65,6 +65,11 @@ class _CustomNavigatorState extends State<CustomNavigator>
       _navigator = widget.navigatorKey ?? GlobalObjectKey<NavigatorState>(this);
 
   @override
+  Future<bool> didPushRouteInformation(RouteInformation routeInformation) {
+    return didPushRoute(routeInformation.location);
+  }
+  
+  @override
   void initState() {
     _setNavigator();
     WidgetsBinding.instance.addObserver(this);
